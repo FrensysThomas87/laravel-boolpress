@@ -34,6 +34,10 @@ class PostSeeder extends Seeder
                 $post->tilte = $faker->text(20);
                 $post->text = $faker->text(1000);
                 $author->posts()->save($post);
+
+
+
+
             }
         }
     }
