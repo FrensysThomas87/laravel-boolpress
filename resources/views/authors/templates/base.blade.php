@@ -11,5 +11,6 @@
     <body>
         @yield('index-content')
         @yield('posts-content')
+        @yield('comments-content')
     </body>
 </html>
