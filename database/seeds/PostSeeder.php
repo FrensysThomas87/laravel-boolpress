@@ -30,7 +30,7 @@ class PostSeeder extends Seeder
 
             for($y = 0; $y < rand(2,5); $y++){
                 $post = new Post();
-                $post->tilte = $faker->text(20);
+                $post->title = $faker->text(20);
                 $post->text = $faker->text(1000);
                 $author->posts()->save($post);
 
