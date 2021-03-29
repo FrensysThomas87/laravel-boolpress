@@ -34,13 +34,16 @@ class PostSeeder extends Seeder
                 $post->text = $faker->text(1000);
                 $author->posts()->save($post);
 
-                for($x = 0; $x < rand(2,5); $x++){
-                    $comment = new Comment();
-                    $comment->text = $faker->text(1000);
-                    $post->comments()->save($comment);
-
-                }
             }
+
+            for($x = 0; $x < rand(2,5); $x++){
+                $comment = new Comment();
+                $comment->text = $faker->text(1000);
+                $post->comments()->save($comment);
+
+            }
+
+
         }
     }
 }
