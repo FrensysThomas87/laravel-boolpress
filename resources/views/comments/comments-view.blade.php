@@ -8,7 +8,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Post's Author</th>
-        <th scope="col">Text</th>
+        <th scope="col">Comment's Text</th>
         <th scope="col">Created At</th>
       </tr>
     </thead>
