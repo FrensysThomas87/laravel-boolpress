@@ -10,5 +10,6 @@
 </head>
     <body>
         @yield('index-content')
+        @yield('posts-content')
     </body>
 </html>
