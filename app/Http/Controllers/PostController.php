@@ -50,7 +50,28 @@ class PostController extends Controller
         $post = new Post();
         $post->fill($data);
         $post->save();
-        $post->tags()->attach($data['tags']);
+
+
+
+        //Nella porzione di codice sottostante prendo associo un tag ad un post semplicemente scrivendolo nel corpo del testo
+
+
+
+        // Prima prendo tutti i tag
+        $allTags = Tag::all();
+
+        //Ora creo l'array che si riempirà se trova un'occorrenza nel testo
+        $finalArrayTag = $data['tags'];
+
+        //Ora ciclo tutti i tags, poi dico che se nel testo è presente uno dei tag lo devo inserire nell'array $finalArrayTag
+        foreach($allTags as $tag){
+            if(stripos($data['text'], $tag->tag_name)!== false){
+                $finalArrayTag[] = $tag->id;
+            }
+        }
+
+        //Infine associo i tag al post
+        $post->tags()->attach($finalArrayTag);
 
         return redirect()->route('posts.index');
     }
