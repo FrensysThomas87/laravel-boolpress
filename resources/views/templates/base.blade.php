@@ -12,5 +12,6 @@
         @yield('index-content')
         @yield('posts-content')
         @yield('comments-content')
+        @yield('create-post-content')
     </body>
 </html>

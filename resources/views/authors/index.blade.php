@@ -1,4 +1,4 @@
-@extends('authors.templates.base')
+@extends('templates.base')
 
 @section('title', 'Authors')
 

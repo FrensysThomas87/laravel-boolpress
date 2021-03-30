@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Post;
 
+use App\Author;
+
 class PostController extends Controller
 {
     /**
@@ -26,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $authors = Author::all();
+        return view('posts.create', compact('authors'));
     }
 
     /**
@@ -37,7 +40,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $post = new Post();
+        $post->fill($data);
+        $post->save();
     }
 
     /**
