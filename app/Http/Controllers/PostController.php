@@ -90,24 +90,33 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $authors = Author::all();
+        $tags = Tag::all();
+        return view('posts.edit', compact('post', 'authors','tags'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        $post->update($data);
+
+        $post->tags()->sync($data['tags']);
+
+        return redirect()->route('posts.index');
+
     }
 
     /**

@@ -14,6 +14,7 @@
             @yield('posts-content')
             @yield('comments-content')
             @yield('create-post-content')
+            @yield('edit-post-content')
         </div>
 
     </body>
