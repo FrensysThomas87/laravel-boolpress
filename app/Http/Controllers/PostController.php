@@ -50,6 +50,9 @@ class PostController extends Controller
         $post = new Post();
         $post->fill($data);
         $post->save();
+        $post->tags()->attach($data['tags']);
+
+        return redirect()->route('posts.index');
     }
 
     /**

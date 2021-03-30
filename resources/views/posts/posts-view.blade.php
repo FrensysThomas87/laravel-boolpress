@@ -10,6 +10,7 @@
         <th scope="col">Author</th>
         <th scope="col">Title</th>
         <th scope="col">Text</th>
+        <th scope="col">Tags</th>
         <th scope="col">Created At</th>
 
       </tr>
@@ -21,6 +22,11 @@
         <td>{{$post->author->name}} {{$post->author->surname}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->text}}</td>
+        <td>
+        @foreach ($post->tags as $tag )
+            {{$tag->tag_name}}
+        @endforeach
+        </td>
         <td>{{$post->created_at}}</td>
       </tr>
     @endforeach
