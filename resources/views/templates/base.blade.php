@@ -9,9 +9,12 @@
     <title>@yield('title')</title>
 </head>
     <body>
-        @yield('index-content')
-        @yield('posts-content')
-        @yield('comments-content')
-        @yield('create-post-content')
+        <div class="container">
+            @yield('index-content')
+            @yield('posts-content')
+            @yield('comments-content')
+            @yield('create-post-content')
+        </div>
+
     </body>
 </html>

@@ -21,12 +21,12 @@
     </div>
 
     <div class="form-group">
-        <label for="tag_name">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="tag_name">
-        @foreach ($tags as $tag)
-            <option value="{{}}">1</option>
-        @endforeach
+        <label for="tags[]">Example multiple select</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2" name="tags[]">
+         @foreach ($tags as $tag )
+         <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
 
+         @endforeach
 
         </select>
       </div>
