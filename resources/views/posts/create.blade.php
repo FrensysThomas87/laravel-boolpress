@@ -13,14 +13,23 @@
     </div>
     <div class="form-group">
       <label for="author_id">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1" name="author_id">
+        <select class="form-control" id="exampleFormControlSelect1" name="author_id">
         @foreach ($authors as $author )
             <option value="{{$author->id}}">{{$author->name}} {{$author->surname}}</option>
         @endforeach
-
-
-      </select>
+        </select>
     </div>
+
+    <div class="form-group">
+        <label for="tag_name">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="tag_name">
+        @foreach ($tags as $tag)
+            <option value="{{}}">1</option>
+        @endforeach
+
+
+        </select>
+      </div>
 
     <div class="form-group">
       <label for="text">Testo del post</label>

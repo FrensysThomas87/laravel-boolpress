@@ -8,6 +8,8 @@ use App\Post;
 
 use App\Author;
 
+use App\Tag;
+
 class PostController extends Controller
 {
     /**
@@ -29,7 +31,10 @@ class PostController extends Controller
     public function create()
     {
         $authors = Author::all();
-        return view('posts.create', compact('authors'));
+
+        $tags = Tag::all();
+
+        return view('posts.create', compact('authors', 'tags'));
     }
 
     /**
