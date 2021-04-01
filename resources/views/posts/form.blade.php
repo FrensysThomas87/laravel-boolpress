@@ -13,7 +13,7 @@ if(isset($edit) && !empty($edit)){
 
 
 
-<form action="{{$url}}" method="post">
+<form action="{{$url}}" method="post"  enctype="multipart/form-data">
     @csrf
     @method($method)
     <div class="form-group">
@@ -38,6 +38,11 @@ if(isset($edit) && !empty($edit)){
          @endforeach
 
         </select>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Carica un'immagine</label>
+        <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci il titolo del post" name="image">
       </div>
 
     <div class="form-group">
