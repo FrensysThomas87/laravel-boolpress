@@ -6,22 +6,21 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Post;
+use Illuminate\Database\Eloquent\Collection;
 
-class PostCreated extends Mailable
+class TagsUsed extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $post = null;
-
+    protected $tags = [];
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Post $post)
+    public function __construct(Collection $tags)
     {
-        $this->post = $post;
+        $this->tags = $tags;
     }
 
     /**
@@ -31,7 +30,7 @@ class PostCreated extends Mailable
      */
     public function build()
     {
-        $post = $this->post;
-        return $this->markdown('mail.post-created', compact('post'));
+        $tags = $this->tags;
+        return $this->markdown('mail.tags-used', compact('tags'));
     }
 }

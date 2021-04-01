@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Post;
 use App\Author;
 use App\Mail\PostCreated;
+use App\Mail\TagsUsed;
 use App\Tag;
 
 
@@ -75,6 +76,12 @@ class PostController extends Controller
 
         //Infine associo i tag al post
         $post->tags()->attach($finalArrayTag);
+
+        $lastPost = Post::orderBy('id', 'desc')->first();
+
+        $tagsMail = new TagsUsed($lastPost->tags);
+
+        Mail::to('mail@mail.it')->send($tagsMail);
 
         Mail::to('mail@mail.it')->send(new PostCreated($post));
 
