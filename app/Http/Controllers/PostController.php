@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use App\Post;
 use App\Author;
+use App\Mail\PostCreated;
 use App\Tag;
+
 
 class PostController extends Controller
 {
@@ -72,6 +75,9 @@ class PostController extends Controller
 
         //Infine associo i tag al post
         $post->tags()->attach($finalArrayTag);
+
+        Mail::to('mail@mail.it')->send(new PostCreated($post));
+
 
         return redirect()->route('posts.index');
     }
