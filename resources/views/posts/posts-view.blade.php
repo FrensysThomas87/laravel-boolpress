@@ -3,7 +3,13 @@
 @section('title', 'Posts')
 
 @section('posts-content')
-<img src="{{ asset('storage/OjwJ2OwiBgPYLscIfF9oF4G4XtJdK4auACvdTp8j.jpg') }}" />
+@foreach ($posts as $post )
+    @if($post->img !== null)
+    {{-- @dd($post->img) --}}
+    <img src="{{ asset($post->img) }}" />
+    @endif
+@endforeach
+
 <table class="table">
     <thead class="thead-dark">
       <tr>
