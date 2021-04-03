@@ -51,7 +51,7 @@ class PostController extends Controller
     {
         $data = $request->all();
 
-        $path = $request->file('image')->store('public');
+        $path = $request->file('image')->store('public/images');
 
 
         $post = new Post();
